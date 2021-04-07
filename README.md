@@ -6,4 +6,4 @@ Welcome to the Frontend training - 2021, React edition
 ## Upcoming sessions
 
 ## Checkins 
-[Checkin 1](https://github.com/tomekpilat/react-training-2021/blob/Checkin1.md)
+[Checkin 1](https://github.com/tomekpilat/react-training-2021/blob/main/Checkin1.md)
