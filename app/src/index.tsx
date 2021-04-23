@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ActiveContextProvider } from "./context/ActiveContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ActiveContextProvider>
+      <App />
+    </ActiveContextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

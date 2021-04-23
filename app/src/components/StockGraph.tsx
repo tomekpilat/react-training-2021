@@ -7,10 +7,14 @@ import { getDailyStockPrice } from "../data/Stocks.Service";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { StocksContext } from "../context/StocksContext";
+import { ActiveContext } from "../context/ActiveContext";
 
 const StockGraph = () => {
   const [period, setPeriod] = useState("today");
   const { state, dispatch } = useContext(StocksContext);
+  const { symbol, changeSymbol } = useContext(
+    ActiveContext
+  );
   const [stockprices, setStockPrices] = useState({
     detailed: [],
     aggregated: [],
@@ -18,21 +22,18 @@ const StockGraph = () => {
 
   useEffect(() => {
     const fetchPrice = async () => {
-      const result = await getDailyStockPrice(
-        state.selected
-      );
+      const result = await getDailyStockPrice(symbol);
       setStockPrices(result);
     };
     fetchPrice();
-  }, [state.selected]);
+  }, [symbol]);
 
-  console.log(state);
   const options = {
     chart: {
       type: "line",
     },
     title: {
-      text: state.selected,
+      text: symbol,
     },
     subtitle: {
       text: "",
